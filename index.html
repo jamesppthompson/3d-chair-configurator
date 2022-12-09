@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>3D Product Configurator</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:200" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="shortcut icon" href="favicon.ico">
+	
+    <link href="css/styles.css" rel="stylesheet" />
+	
+    <!--jQuery-->
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+    <link href="css/spectrum.css" rel="stylesheet" />
+    <script src="js/spectrum.js"></script>
+</head>
+
+<body>
+
+    <div id="container">
+
+        <div class="menuTopNav" id="menuTopNav">
+            <span class="title">3D Product Configurator</span>
+           
+            <a href="#" class="menu_button" id="colour">
+                <img src="images/menu/swatches.png"><br />
+                Colours
+            </a>
+            <a href="#" class="menu_button" id="materialsBtn">
+                <img src="images/menu/texture.png"><br />
+                Materials
+            </a>
+            
+            <!--Show mobile menu bars on resize-->
+            <a href="javascript:void(0);" class="icon" onclick="mobileMenu()">
+                <i class="fa fa-bars"></i>
+            </a>
+
+        </div>
+
+        <div id="colour_box">
+            <button id="closeColour">x</button>
+            <h4 class="box-title">Colour Changer</h4>
+            <select id="model_parts" onchange="main.showPicker();" ondblclick="main.showPicker();">
+                <option value="" disabled selected>Select Model Part</option>
+                <option value="seat">Seat Base</option>
+                <option value="seat_cushion">Seat Cushion</option>
+                <option value="legs">Legs</option>
+                <option value="arms">Arms</option>
+                <option value="back">Back</option>
+            </select>
+            <div id="colourChange">
+                Colour Picker:
+                <input type='text' class="col_select" />
+                <br />
+                <em id='basic_log'></em>
+                <br />
+                <button id="colourReset">Reset Colours</button>
+            </div>
+        </div>
+
+        <div id="materials_panel">
+            <div class="materialCheck">           
+                    <input type="radio" name="mat" value="back" id="back">
+                    <label for="back"> Back</label>
+                    <input type="radio" name="mat" value="cushion" id="cushion">
+                    <label for="cushion"> Cushion</label>                
+            </div>
+		
+            <button class="materialBtn" id="blackMat"></button>
+            <button class="materialBtn" id="mosaicMat"></button>
+            <button class="materialBtn" id="yellowMat"></button>
+            <button class="materialBtn" id="fabric1"></button>
+            <button class="materialBtn" id="fabric2"></button>
+            <button class="materialBtn" id="fabric3"></button>
+            <button class="materialBtn" id="fabric4"></button>
+            <button class="materialBtn" id="fabric5"></button>
+            <button class="materialBtn" id="fabric6"></button>
+            <button class="materialBtn" id="fabric7"></button>
+            <button class="materialBtn" id="fabric8"></button>
+            <button class="materialBtn" id="fabric9"></button>
+		
+            <button id="resetMaterial">Reset Materials</button>
+        </div>
+        
+        <div id="credit">Original chair model by Marcel</a></div>
+
+    </div>
+
+    <!--Three.js files-->
+    <script src="js/three.js-r92.js"></script>
+    <script src="js/OrbitControls.js"></script>
+    <script src="js/GLTFLoader.js"></script>
+    <script src="js/GLTFExporter.js"></script>
+    <script src="js/TransformControls.js"></script>
+
+    <script>
+        function mobileMenu() {
+            var x = document.getElementById("menuTopNav");
+            if (x.className === "menuTopNav") {
+                x.className += " responsive";
+            } else {
+                x.className = "menuTopNav";
+            }
+        }
+    </script>
+	
+    <script src="js/chair.js"></script>
+	    
+</body>
+</html>
